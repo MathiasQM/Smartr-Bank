@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="/icon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/output.css" />
+    <script src="script.js" defer></script>
+    <title>Smartr Bank</title>
+  </head>
+  <body class="bg-slate-900 h-screen text-white px-8">
+    <!-- TOP NAVIGATION -->
+    <nav class="flex justify-between items-center py-8">
+      <p class="welcome text-3xl font-bold">Log in to get started</p>
+      <img src="logo.png" alt="Logo" class="logo h-20 invert" />
+      <form class="login flex">
+        <input
+          type="text"
+          placeholder="user"
+          class="login__input login__input--user bg-cyan-400 text-slate-50 placeholder:text-slate-50 py-2 px-8 text-2xl text-center w-48 rounded-[10rem] mr-4 text border-white border border-none transition-all duration-300 focus:outline-none focus:border-solid"
+        />
+        <input
+          type="text"
+          placeholder="PIN"
+          maxlength="4"
+          class="login__input login__input--pin bg-cyan-400 text-slate-50 placeholder:text-slate-50 py-2 px-8 text-2xl text-center w-48 rounded-[10rem] mr-4 text border-white border border-none transition-all duration-300 focus:outline-none focus:border-solid"
+        />
+        <button
+          class="login__btn border-none bg-none text-4xl cursor-pointer transition-all duration-300"
+        >
+          &rarr;
+        </button>
+      </form>
+    </nav>
+
+    <main
+      class="app relative max-w-[100rem] mx-16 my-auto gap-8 transition-all duration-1000"
+    >
+      <!-- BALANCE -->
+      <div class="balance flex items-end justify-between mb-8">
+        <div>
+          <p class="balance__value_label">Current balance</p>
+          <p class="balance__date text-2xl text-neutral-500">
+            As of <span class="date">05/03/2037</span>
+          </p>
+        </div>
+        <p class="balance__value text-7xl font-medium">0000€</p>
+      </div>
+
+      <!-- MOVEMENTS -->
+      <div class="movements bg-slate-800 rounded-2xl overflow-y-auto">
+        <div
+          class="movements__row px-2.25 py-16 flex items-center borderb-[1px] border-zinc-400"
+        >
+          <div
+            class="movements__type movements__type--deposit text-lg uppercase font-bold text-white py-1 px-4 rounded-[10rem] mr-8"
+          >
+            2 deposit
+          </div>
+          <div
+            class="movements__date text-lg uppercase font-bold text-cyan-500"
+          >
+            3 days ago
+          </div>
+          <div class="movements__value text-3xl ml-auto">4 000€</div>
+        </div>
+        <div
+          class="movements__row px-2.25 py-16 flex items-center borderb-[2px] border-white"
+        >
+          <div
+            class="movements__type movements__type--withdrawal text-lg uppercase font-bold text-white py-1 px-4 rounded-[10rem] mr-8"
+          >
+            1 withdrawal
+          </div>
+          <div
+            class="movements__date text-lg uppercase font-bold text-cyan-500"
+          >
+            24/01/2037
+          </div>
+          <div class="movements__value text-3xl ml-auto">-378€</div>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="summary flex items-baseline py-1 mt-3">
+        <p class="summary__label text-xl font-bold uppercase mr-3">In</p>
+        <p class="summary__value summary__value--in text-4xl mr-10">0000€</p>
+        <p class="summary__label text-xl font-bold uppercase mr-3">Out</p>
+        <p class="summary__value summary__value--out text-4xl mr-10">0000€</p>
+        <p class="summary__label text-xl font-bold uppercase mr-3">Interest</p>
+        <p class="summary__value summary__value--interest text-4xl mr-10">
+          0000€
+        </p>
+        <button
+          class="btn--sort ml-auto border-none bg-none text-xl font-bold cursor-pointer"
+        >
+          &downarrow; SORT
+        </button>
+      </div>
+
+      <!-- OPERATION: TRANSFERS -->
+      <div
+        class="operation operation--transfer rounded-2xl py-12 px-16 text-zinc-700"
+      >
+        <h2 class="mb-6 text-3xl font-bold text-zinc-800">Transfer smoney</h2>
+        <form class="form form--transfer">
+          <input
+            type="text"
+            class="form__input w-full border-none bg-zinc-800 opacity-[.2] text-2xl text-center text-neutral-900 py-1 px-4 rounded-xl transition-all duration-300 focus:outline-none focus:bg-slate-400 form__input--to"
+          />
+          <input
+            type="number"
+            class="form__input w-full border-none bg-zinc-800 opacity-[.2] text-2xl text-center text-neutral-900 py-1 px-4 rounded-xl transition-all duration-300 focus:outline-none focus:bg-slate-400 form__input--amount"
+          />
+          <button
+            class="form__btn form__btn--transfer border-none rounded-xl text-3xl bg-white cursor-pointer transition-all duration-300 focus:outline-none focus:bg-slate-500"
+          >
+            &rarr;
+          </button>
+          <label class="form__label text-xl text-center">Transfer to</label>
+          <label class="form__label text-xl text-center">Amount</label>
+        </form>
+      </div>
+
+      <!-- OPERATION: LOAN -->
+      <div
+        class="operation operation--loan rounded-2xl py-12 px-16 text-zinc-700"
+      >
+        <h2 class="mb-6 text-3xl font-bold text-zinc-800">Request loan</h2>
+        <form class="form form--loan">
+          <input
+            type="number"
+            class="form__input w-full border-none bg-zinc-800 opacity-[.2] text-2xl text-center text-neutral-900 py-1 px-4 rounded-xl transition-all duration-300 focus:outline-none focus:bg-slate-400 form__input--loan-amount"
+          />
+          <button
+            class="form__btn form__btn--loan border-none rounded-xl text-3xl bg-white cursor-pointer transition-all duration-300 focus:outline-none focus:bg-slate-100"
+          >
+            &rarr;
+          </button>
+          <label class="form__label form__label--loan text-xl text-center"
+            >Amount</label
+          >
+        </form>
+      </div>
+
+      <!-- OPERATION: CLOSE -->
+      <div
+        class="operation operation--close rounded-2xl py-12 px-16 text-zinc-700"
+      >
+        <h2 class="mb-6 text-3xl font-bold text-zinc-800">Close account</h2>
+        <form class="form form--close">
+          <input
+            type="text"
+            class="form__input w-full border-none bg-zinc-800 opacity-[.2] text-2xl text-center text-neutral-900 py-1 px-4 rounded-xl transition-all duration-300 focus:outline-none focus:bg-slate-400 form__input--user"
+          />
+          <input
+            type="password"
+            maxlength="6"
+            class="form__input w-full border-none bg-zinc-800 opacity-[.2] text-2xl text-center text-neutral-900 py-1 px-4 rounded-xl transition-all duration-300 focus:outline-none focus:bg-slate-400 form__input--pin"
+          />
+          <button
+            class="form__btn form__btn--close border-none rounded-xl text-3xl bg-white cursor-pointer transition-all duration-300 focus:outline-none focus:bg-slate-100"
+          >
+            &rarr;
+          </button>
+          <label class="form__label text-xl text-center">Confirm user</label>
+          <label class="form__label text-xl text-center">Confirm PIN</label>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
